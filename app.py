@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from dotenv import load_dotenv
 from auth_blueprint import authentication_blueprint
@@ -15,4 +16,4 @@ app.register_blueprint(comments_blueprint)
 def signup():
   return "Hello world."
 
-app.run()
+app.run(port=os.environ['PORT'] if 'PORT' in os.environ else 5000)
